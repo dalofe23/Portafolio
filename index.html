@@ -5,145 +5,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>David López - Desarrollador Web</title>
 	<meta name="description" content="Portafolio de David López, desarrollador web especializado en aplicaciones modernas y soluciones innovadoras.">
-	<meta name="keywords" content="David López, desarrollador web, JavaScript, HTML, CSS, PHP, Laravel, Angular, programación, portafolio">
-	<!-- Preconnect for faster DNS/TLS -->
+	<meta name="keywords" content="David López, desarrollador web, JavaScript, HTML, CSS, PHP, programación, portafolio">
 	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-	<!-- Preload critical resources -->
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-	<!-- Stylesheets -->
-	<!-- Load Google Font early -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<!-- Make Font Awesome non-blocking -->
-	<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="./styles/main.css">
 	<link rel="stylesheet" href="./styles/effects.css">
 </head>
 <body>
-	<!-- Formulario de contacto funcional con confirmación solo en el portafolio -->
-	<form id="contactForm" action="https://formspree.io/f/mdkwgwpo" method="POST" class="formspree-contact-form">
-		<label class="formspree-label">
-			Tu email:
-			<input type="email" name="email" required class="formspree-input">
-		</label>
-		<label class="formspree-label">
-			Tu mensaje:
-			<textarea name="message" required class="formspree-textarea"></textarea>
-		</label>
-		<button type="submit" class="formspree-btn">Enviar</button>
-	</form>
-	<div id="formSuccess" class="formspree-success" style="display:none;">¡Gracias por tu mensaje!</div>
-	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const form = document.getElementById('contactForm');
-		const success = document.getElementById('formSuccess');
-		if(form) {
-			form.addEventListener('submit', function(e) {
-				e.preventDefault();
-				fetch(form.action, {
-					method: 'POST',
-					body: new FormData(form),
-					headers: { 'Accept': 'application/json' }
-				}).then(response => {
-					if (response.ok) {
-						form.reset();
-						form.style.display = 'none';
-						success.style.display = 'block';
-					} else {
-						success.style.display = 'none';
-						alert('Hubo un error al enviar el mensaje.');
-					}
-				}).catch(() => {
-					success.style.display = 'none';
-					alert('No se pudo enviar el mensaje. Inténtalo más tarde.');
-				});
-			});
-		}
-	});
-	</script>
-	<!-- ...el resto de tu contenido del portafolio aquí... -->
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="es" data-theme="dark">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>David López - Desarrollador Web</title>
-	<meta name="description" content="Portafolio de David López, desarrollador web especializado en aplicaciones modernas y soluciones innovadoras.">
-	<meta name="keywords" content="David López, desarrollador web, JavaScript, HTML, CSS, PHP, Laravel, Angular, programación, portafolio">
-	
-	<!-- Preconnect for faster DNS/TLS -->
-	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-	<!-- Preload critical resources -->
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-	
-	<!-- Stylesheets -->
-	<!-- Load Google Font early -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<!-- Make Font Awesome non-blocking -->
-	<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-	<link rel="stylesheet" href="./styles/main.css">
-	<link rel="stylesheet" href="./styles/effects.css">
-	
-	<!-- Particles se carga de forma diferida desde JS -->
-	
-	<!-- Favicon (sin emoji) -->
-	<link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='black'/><text x='50' y='60' text-anchor='middle' font-size='48' fill='white' font-family='Inter, Arial, sans-serif'>DL</text></svg>">
-	
-	<!-- Fallback: estilos mínimos para ocultar la pantalla de carga si el JS falla -->
-	<style>
-	  .loading-screen.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s ease; }
-	</style>
-	<noscript><style>.loading-screen{display:none !important}</style></noscript>
-</head>
-<body>
-	<!-- Loading Screen -->
 	<div class="loading-screen" id="loadingScreen">
 		<div class="loading-content">
-			<div class="loading-logo">
-				<span class="loading-text">DL</span>
-			</div>
-			<div class="loading-progress">
-				<div class="loading-bar"></div>
-			</div>
+			<div class="loading-logo"><span class="loading-text">DL</span></div>
+			<div class="loading-progress"><div class="loading-bar"></div></div>
 		</div>
 	</div>
 
-	<!-- Navigation -->
 	<nav class="navbar" id="navbar">
 		<div class="nav-container">
-			<div class="nav-logo">
-				<span class="logo-text">David<span class="accent">López</span></span>
-			</div>
-			
+			<div class="nav-logo"><span class="logo-text">David<span class="accent">López</span></span></div>
 			<ul class="nav-menu" id="navMenu">
-				<li class="nav-item">
-					<a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a>
-				</li>
-				<li class="nav-item">
-					<a href="#sobre-mi" class="nav-link" data-section="sobre-mi">Sobre Mí</a>
-				</li>
-				<li class="nav-item">
-					<a href="#experiencia" class="nav-link" data-section="experiencia">Experiencia</a>
-				</li>
-				<li class="nav-item">
-					<a href="#habilidades" class="nav-link" data-section="habilidades">Habilidades</a>
-				</li>
-				<li class="nav-item">
-					<a href="#contacto" class="nav-link" data-section="contacto">Contacto</a>
-				</li>
+				<li class="nav-item"><a href="#inicio" class="nav-link active" data-section="inicio" data-lang-key="nav-home">Inicio</a></li>
+				<li class="nav-item"><a href="#sobre-mi" class="nav-link" data-section="sobre-mi" data-lang-key="nav-about">Sobre Mí</a></li>
+				<li class="nav-item"><a href="#experiencia" class="nav-link" data-section="experiencia" data-lang-key="nav-experience">Experiencia</a></li>
+				<li class="nav-item"><a href="#habilidades" class="nav-link" data-section="habilidades" data-lang-key="nav-skills">Habilidades</a></li>
+				<li class="nav-item"><a href="#contacto" class="nav-link" data-section="contacto" data-lang-key="nav-contact">Contacto</a></li>
 			</ul>
-
 			<div class="nav-actions">
+				<button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">
+					<span class="lang-es active">ES</span>
+					<span class="lang-en">EN</span>
+				</button>
 				<button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-					<span class="sun-icon"><i class="fas fa-sun" aria-hidden="true"></i></span>
-					<span class="moon-icon"><i class="fas fa-moon" aria-hidden="true"></i></span>
+					<span class="sun-icon"><i class="fas fa-sun"></i></span>
+					<span class="moon-icon"><i class="fas fa-moon"></i></span>
 				</button>
 				<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menú móvil">
 					<span class="hamburger-line"></span>
@@ -154,13 +50,9 @@
 		</div>
 	</nav>
 
-	<!-- Main Content -->
 	<main>
-		<!-- Hero Section -->
 		<section id="inicio" class="hero-section">
-			<!-- Particles Background -->
 			<div id="particles-js" class="particles-container"></div>
-			
 			<div class="hero-background">
 				<div class="floating-shapes">
 					<div class="shape shape-1"></div>
@@ -168,143 +60,97 @@
 					<div class="shape shape-3"></div>
 					<div class="shape shape-4"></div>
 				</div>
-				
-				<!-- Matrix Rain Effect -->
 				<canvas id="matrix-rain" class="matrix-canvas"></canvas>
 			</div>
-			
 			<div class="container">
 				<div class="hero-content">
 					<div class="hero-text">
 						<h1 class="hero-title">
-							<span class="title-line animate-fade-in-up">Hola, soy</span>
+							<span class="title-line animate-fade-in-up" data-lang-key="hero-greeting">Hola, soy</span>
 							<span class="title-line hero-name animated-gradient-text">David López</span>
 							<span class="title-line hero-role">
-								<span class="typewriter neon-glow" data-words="Desarrollador Web,Estudiante Apasionado,Solucionador de Problemas,Innovador Creativo"></span>
+								<span class="typewriter" data-words="Desarrollador Web,Estudiante Apasionado,Solucionador de Problemas,Innovador Creativo"></span>
 							</span>
 						</h1>
-						<p class="hero-description">
-							Soy alguien que aprende rápido y se adapta a cualquier desafío. 
-							Me encanta trabajar en equipo, aportar ideas y resolver problemas juntos. 
-							Mi habilidad para pillar todo al vuelo me permite destacarme en lo que hago 
-							y seguir creciendo como profesional.
-						</p>
+						<p class="hero-description" data-lang-key="hero-description">Soy alguien que aprende rápido y se adapta a cualquier desafío. Me encanta trabajar en equipo, aportar ideas y resolver problemas juntos. Mi habilidad para pillar todo al vuelo me permite destacarme en lo que hago y seguir creciendo como profesional.</p>
 						<div class="hero-actions">
 							<a href="#contacto" class="btn cyberpunk-btn">
 								<i class="fas fa-paper-plane"></i>
-								<span>Contactar</span>
+								<span data-lang-key="hero-contact-btn">Contactar</span>
 							</a>
 						</div>
 					</div>
-					
 					<div class="hero-visual">
-						<div class="profile-card holographic-card">
+						<div class="profile-card">
 							<div class="profile-image">
-								<div class="profile-placeholder">
-									<span class="profile-initials glitch-text" data-text="DL">DL</span>
-									<div class="profile-glow"></div>
-								</div>
+								<div class="profile-placeholder"><span class="profile-initials">DL</span></div>
 								<div class="profile-status">
 									<span class="status-dot"></span>
-									<span class="status-text">
-										<i class="fas fa-code"></i>
-										Disponible
-									</span>
+									<span class="status-text"><i class="fas fa-code"></i><span data-lang-key="hero-status">Disponible</span></span>
 								</div>
 							</div>
-							
-							<!-- Skills Preview -->
 							<div class="profile-skills">
-								<div class="skill-badge">
-									<i class="fab fa-html5"></i>
-									<span>HTML5</span>
-								</div>
-								<div class="skill-badge">
-									<i class="fab fa-css3-alt"></i>
-									<span>CSS3</span>
-								</div>
-								<div class="skill-badge">
-									<i class="fab fa-js-square"></i>
-									<span>JavaScript</span>
-								</div>
-								<div class="skill-badge">
-									<i class="fab fa-php"></i>
-									<span>PHP</span>
-								</div>
-								<div class="skill-badge">
-									<i class="fab fa-laravel"></i>
-									<span>Laravel</span>
-								</div>
-								<div class="skill-badge">
-									<i class="fab fa-angular"></i>
-									<span>Angular</span>
-								</div>
+								<div class="skill-badge"><i class="fab fa-html5"></i><span>HTML5</span></div>
+								<div class="skill-badge"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+								<div class="skill-badge"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+								<div class="skill-badge"><i class="fab fa-php"></i><span>PHP</span></div>
+								<div class="skill-badge"><i class="fab fa-git-alt"></i><span>Git</span></div>
+								<div class="skill-badge"><i class="fab fa-docker"></i><span>Docker</span></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<!-- Scroll Indicator -->
 			<div class="scroll-indicator">
-				<span>Scroll</span>
+				<span data-lang-key="hero-scroll">Scroll</span>
 				<div class="scroll-line"></div>
 			</div>
 		</section>
 
-		<!-- About Section -->
 		<section id="sobre-mi" class="about-section section">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">Sobre Mí</h2>
-					<p class="section-subtitle">Conóceme mejor</p>
+					<h2 class="section-title" data-lang-key="about-title">Sobre Mí</h2>
+					<p class="section-subtitle" data-lang-key="about-subtitle">Conóceme mejor</p>
 				</div>
-
 				<div class="about-content">
 					<div class="about-text">
 						<div class="about-card">
-							<div class="card-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
-							<h3>Estudiante & Desarrollador</h3>
-							<p>
-								Actualmente estoy enfocado en el desarrollo de aplicaciones web, 
-								combinando creatividad con tecnología para crear soluciones innovadoras.
-								Mi pasión por aprender me mantiene siempre actualizado con las últimas tendencias.
-							</p>
+							<div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+							<h3 data-lang-key="about-card1-title">Estudiante & Desarrollador</h3>
+							<p data-lang-key="about-card1-text">Actualmente estoy enfocado en el desarrollo de aplicaciones web, combinando creatividad con tecnología para crear soluciones innovadoras. Mi pasión por aprender me mantiene siempre actualizado con las últimas tendencias.</p>
 						</div>
-
 						<div class="about-card">
-							<div class="card-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
-							<h3>Fortalezas Principales</h3>
+							<div class="card-icon"><i class="fas fa-star"></i></div>
+							<h3 data-lang-key="about-card2-title">Fortalezas Principales</h3>
 							<ul class="strengths-list">
-								<li><strong>Disponibilidad para viajar:</strong> Flexible y adaptable</li>
-								<li><strong>Resolutivo:</strong> Encuentro soluciones creativas</li>
-								<li><strong>Diseño Web:</strong> Interfaces modernas y funcionales</li>
-								<li><strong>Trabajo en equipo:</strong> Colaborativo y comunicativo</li>
+								<li data-lang-key="about-strength1"><strong>Disponibilidad para viajar:</strong> Flexible y adaptable</li>
+								<li data-lang-key="about-strength2"><strong>Resolutivo:</strong> Encuentro soluciones creativas</li>
+								<li data-lang-key="about-strength3"><strong>Diseño Web:</strong> Interfaces modernas y funcionales</li>
+								<li data-lang-key="about-strength4"><strong>Trabajo en equipo:</strong> Colaborativo y comunicativo</li>
 							</ul>
 						</div>
 					</div>
-
 					<div class="about-stats">
 						<div class="stat-card">
 							<div class="stat-number" data-count="8">0</div>
-							<div class="stat-label">Tecnologías Dominadas</div>
+							<div class="stat-label" data-lang-key="stat-label1">Tecnologías Dominadas</div>
 						</div>
 						<div class="stat-card">
 							<div class="stat-number" data-count="100">0</div>
-							<div class="stat-label">% Satisfacción Cliente</div>
+							<div class="stat-label" data-lang-key="stat-label2">% Satisfacción Cliente</div>
 						</div>
-						<!-- Idiomas debajo de satisfacción cliente -->
 						<div class="about-card" style="margin-top:1.5rem;">
-							<div class="card-icon"><i class="fas fa-language" aria-hidden="true"></i></div>
-							<h3>Idiomas</h3>
+							<div class="card-icon"><i class="fas fa-language"></i></div>
+							<h3 data-lang-key="languages-title">Idiomas</h3>
 							<div class="languages">
 								<div class="language-item">
-									<span class="language-name">Español</span>
-									<span class="language-level native">Nativo</span>
+									<span class="language-name" data-lang-key="lang-spanish">Español</span>
+									<span class="language-level native" data-lang-key="lang-spanish-level">Nativo</span>
 								</div>
 								<div class="language-item">
-									<span class="language-name">Inglés</span>
-									<span class="language-level advanced">Avanzado</span>
+									<span class="language-name" data-lang-key="lang-english">Inglés</span>
+									<span class="language-level advanced" data-lang-key="lang-english-level">Intermedio</span>
 								</div>
 							</div>
 						</div>
@@ -313,23 +159,21 @@
 			</div>
 		</section>
 
-		<!-- NUEVA: Experiencia (del CV) -->
 		<section id="experiencia" class="section">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">Experiencia</h2>
-					<p class="section-subtitle">Resumen profesional</p>
+					<h2 class="section-title" data-lang-key="exp-title">Experiencia</h2>
+					<p class="section-subtitle" data-lang-key="exp-subtitle">Resumen profesional</p>
 				</div>
-
 				<div class="about-content">
 					<div class="about-text">
 						<div class="about-card">
-							<div class="card-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div>
-							<h3>Prácticas Erasmus — Casemedia (Finlandia)</h3>
+							<div class="card-icon"><i class="fas fa-briefcase"></i></div>
+							<h3 data-lang-key="exp-job-title">Prácticas Erasmus — Casemedia (Finlandia)</h3>
 							<ul class="strengths-list">
-								<li>Rol: Desarrollador Web/Móvil (2025)</li>
-								<li>Estancia de 1 mes a jornada completa (8 h/día) dentro del programa Erasmus.</li>
-								<li>Desarrollo de aplicaciones móviles con Flutter, participando en todo el ciclo de vida.</li>
+								<li data-lang-key="exp-role">Rol: Desarrollador Web/Móvil (2025)</li>
+								<li data-lang-key="exp-duration">Estancia de 1 mes a jornada completa (8 h/día) dentro del programa Erasmus.</li>
+								<li data-lang-key="exp-description">Desarrollo de aplicaciones móviles con Flutter, participando en todo el ciclo de vida.</li>
 							</ul>
 						</div>
 					</div>
@@ -337,443 +181,195 @@
 			</div>
 		</section>
 
-		<!-- Skills Section -->
 		<section id="habilidades" class="skills-section section">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">Habilidades</h2>
-					<p class="section-subtitle">Tecnologías que domino</p>
+					<h2 class="section-title" data-lang-key="skills-title">Habilidades</h2>
+					<p class="section-subtitle" data-lang-key="skills-subtitle">Tecnologías que domino</p>
 				</div>
-
-				<div class="skills-content">
-					<!-- Hard Skills -->
-					<div class="skills-category">
-						<h3 class="category-title">
-							<span class="category-icon"><i class="fas fa-microchip" aria-hidden="true"></i></span>
-							Habilidades Técnicas
-						</h3>
-
-						<div class="skills-grid">
-							<!-- Lenguajes y Frameworks (lenguajes primero, luego frameworks) -->
-							<div class="skill-group">
-								<h4>Lenguajes y Frameworks</h4>
-								<div class="skill-items">
-									<div class="skill-item">
-										<span class="skill-name">Java</span>
-										<div class="skill-progress"><div class="progress-bar" data-progress="60"></div></div>
-									</div>
-									<div class="skill-item">
-										<span class="skill-name">JavaScript</span>
-										<div class="skill-progress"><div class="progress-bar" data-progress="70"></div></div>
-									</div>
-									<div class="skill-item">
-										<span class="skill-name">PHP</span>
-										<div class="skill-progress"><div class="progress-bar" data-progress="65"></div></div>
-									</div>
-									<div class="skill-item">
-										<span class="skill-name">Angular</span>
-										<div class="skill-progress"><div class="progress-bar" data-progress="55"></div></div>
-									</div>
-									<div class="skill-item">
-										<span class="skill-name">Laravel</span>
-										<div class="skill-progress"><div class="progress-bar" data-progress="60"></div></div>
-									</div>
-									<div class="skill-item">
-										<span class="skill-name">Flutter</span>
-										<div class="skill-progress"><div class="progress-bar" data-progress="50"></div></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Front-end (badges en orden alfabético) -->
-							<div class="skill-group">
-								<h4>Front‑end</h4>
-								<div class="tech-badges">
-									<span class="tech-badge">CSS3</span>
-									<span class="tech-badge">Emmet</span>
-									<span class="tech-badge">HTML5</span>
-									<span class="tech-badge">JSON</span>
-									<span class="tech-badge">Markdown</span>
-								</div>
-							</div>
-
-							<!-- Bases de Datos (orden alfabético) -->
-							<div class="skill-group">
-								<h4>Bases de Datos</h4>
-								<div class="tech-badges">
-									<span class="tech-badge">MongoDB</span>
-									<span class="tech-badge">MySQL</span>
-									<span class="tech-badge">SQL relacional</span>
-								</div>
-							</div>
-
-							<!-- Sistemas y Entornos (orden alfabético) -->
-							<div class="skill-group">
-								<h4>Sistemas y Entornos</h4>
-								<div class="tech-badges">
-									<span class="tech-badge">Bash</span>
-									<span class="tech-badge">GParted</span>
-									<span class="tech-badge">Linux</span>
-									<span class="tech-badge">SSH</span>
-									<span class="tech-badge">Windows</span>
-								</div>
-							</div>
-
-							<!-- Herramientas y Metodologías (ya ordenado) -->
-							<div class="skill-group">
-								<h4>Herramientas y Metodologías</h4>
-								<div class="tech-badges">
-									<span class="tech-badge">Git</span>
-									<span class="tech-badge">VirtualBox</span>
-									<span class="tech-badge">XQuery</span>
-									<span class="tech-badge">XPath</span>
-								</div>
-							</div>
+				<div class="skills-grid-modern">
+					<div class="skill-card-modern">
+						<h3 class="skill-card-title" data-lang-key="skills-frontend-title">Front-End & Markup Languages</h3>
+						<div class="skill-list-modern">
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> HTML</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> CSS</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> JavaScript</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Bootstrap</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> XML</div>
 						</div>
 					</div>
-
-					<!-- Soft Skills -->
-					<div class="skills-category">
-						<h3 class="category-title">
-							<span class="category-icon"><i class="fas fa-user-check" aria-hidden="true"></i></span>
-							Habilidades Blandas
-						</h3>
-						
-						<div class="soft-skills-grid">
-							<div class="soft-skill-card">
-								<div class="soft-skill-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
-								<h4>Proactividad</h4>
-								<p>Siempre tomo la iniciativa para resolver problemas sin necesidad de ser dirigido.</p>
-							</div>
-							<div class="soft-skill-card">
-								<div class="soft-skill-icon"><i class="fas fa-arrows-rotate" aria-hidden="true"></i></div>
-								<h4>Adaptabilidad</h4>
-								<p>Me ajusto rápidamente a cambios y nuevos entornos, manteniendo un rendimiento constante.</p>
-							</div>
+					<div class="skill-card-modern">
+						<h3 class="skill-card-title" data-lang-key="skills-backend-title">Back-End</h3>
+						<div class="skill-list-modern">
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Java</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> PHP</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Laravel</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Angular</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Flutter</div>
+						</div>
+					</div>
+					<div class="skill-card-modern">
+						<h3 class="skill-card-title" data-lang-key="skills-tools-title">Tools & IDEs</h3>
+						<div class="skill-list-modern">
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> VsCode</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> NetBeans</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> GitHub</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Git</div>
+						</div>
+					</div>
+					<div class="skill-card-modern">
+						<h3 class="skill-card-title" data-lang-key="skills-databases-title">Databases</h3>
+						<div class="skill-list-modern">
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> MySQL</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> MongoDB</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> FileMaker</div>
+						</div>
+					</div>
+					<div class="skill-card-modern">
+						<h3 class="skill-card-title" data-lang-key="skills-devops-title">DevOps</h3>
+						<div class="skill-list-modern">
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Linux CLI / Bash</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> PowerShell</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> Docker</div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> VirtualBox</div>
+						</div>
+					</div>
+					<div class="skill-card-modern">
+						<h3 class="skill-card-title" data-lang-key="skills-soft-title">Soft Skills</h3>
+						<div class="skill-list-modern">
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> <span data-lang-key="skills-soft-item1">Trabajo en Equipo</span></div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> <span data-lang-key="skills-soft-item2">Resolución de Problemas</span></div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> <span data-lang-key="skills-soft-item3">Adaptabilidad</span></div>
+							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> <span data-lang-key="skills-soft-item4">Comunicación Efectiva</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="soft-skills-section-modern">
+					<h3 class="soft-skills-title">
+						<span class="category-icon"><i class="fas fa-user-check"></i></span>
+						<span data-lang-key="soft-skills-main-title">Habilidades Blandas</span>
+					</h3>
+					<div class="soft-skills-grid">
+						<div class="soft-skill-card">
+							<div class="soft-skill-icon"><i class="fas fa-bolt"></i></div>
+							<h4 data-lang-key="soft-skill1-title">Proactividad</h4>
+							<p data-lang-key="soft-skill1-text">Tomo la iniciativa en cada proyecto, anticipándome a los desafíos y buscando constantemente formas de optimizar procesos sin esperar indicaciones.</p>
+						</div>
+						<div class="soft-skill-card">
+							<div class="soft-skill-icon"><i class="fas fa-arrows-rotate"></i></div>
+							<h4 data-lang-key="soft-skill2-title">Adaptabilidad</h4>
+							<p data-lang-key="soft-skill2-text">Mi capacidad para ajustarme rápidamente a nuevas tecnologías, metodologías y entornos de trabajo me permite mantener un alto rendimiento en cualquier situación.</p>
+						</div>
+						<div class="soft-skill-card">
+							<div class="soft-skill-icon"><i class="fas fa-users"></i></div>
+							<h4 data-lang-key="soft-skill3-title">Trabajo en Equipo</h4>
+							<p data-lang-key="soft-skill3-text">Colaboro eficazmente con equipos multidisciplinarios, compartiendo conocimientos y aprendiendo de otros para alcanzar objetivos comunes de manera exitosa.</p>
+						</div>
+						<div class="soft-skill-card">
+							<div class="soft-skill-icon"><i class="fas fa-lightbulb"></i></div>
+							<h4 data-lang-key="soft-skill4-title">Resolución de Problemas</h4>
+							<p data-lang-key="soft-skill4-text">Analizo situaciones complejas desde diferentes perspectivas, desarrollando soluciones creativas e innovadoras que aportan valor real a cada proyecto.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Contact Section -->
 		<section id="contacto" class="contact-section section">
 			<div class="container">
 				<div class="section-header">
-					<h2 class="section-title">Contacto</h2>
-					<p class="section-subtitle">Ponte en contacto conmigo</p>
+					<h2 class="section-title" data-lang-key="contact-title">Contacto</h2>
+					<p class="section-subtitle" data-lang-key="contact-subtitle">Ponte en contacto conmigo</p>
 				</div>
-
 				<div class="contact-content">
 					<div class="contact-info">
 						<div class="contact-card">
-							<div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
-							<h3>Email</h3>
+							<div class="contact-icon"><i class="fas fa-envelope"></i></div>
+							<h3 data-lang-key="contact-email">Email</h3>
 							<a href="mailto:davidlopezferreras@gmail.com">davidlopezferreras@gmail.com</a>
 						</div>
 						<div class="contact-card">
-							<div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
-							<h3>Teléfono</h3>
+							<div class="contact-icon"><i class="fas fa-phone"></i></div>
+							<h3 data-lang-key="contact-phone">Teléfono</h3>
 							<a href="tel:+34660000174">66 00 00 01 74</a>
 						</div>
 						<div class="contact-card">
-							<div class="contact-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
-							<h3>Ubicación</h3>
+							<div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+							<h3 data-lang-key="contact-location">Ubicación</h3>
 							<span>Plasencia, Cáceres</span>
 						</div>
 					</div>
+					<form class="contact-form" id="contactForm" action="https://formspree.io/f/mdkwgwpo" method="POST">
+						<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+						<div class="form-group">
+							<label for="name" data-lang-key="form-name">Nombre</label>
+							<input type="text" id="name" name="name" required minlength="2" placeholder="Tu nombre">
+						</div>
+						<div class="form-group">
+							<label for="email" data-lang-key="form-email">Email</label>
+							<input type="email" id="email" name="email" required placeholder="tu@email.com">
+						</div>
+						<div class="form-group">
+							<label for="subject" data-lang-key="form-subject">Asunto</label>
+							<input type="text" id="subject" name="subject" required minlength="3" placeholder="Asunto del mensaje">
+						</div>
+						<div class="form-group">
+							<label for="message" data-lang-key="form-message">Mensaje</label>
+							<textarea id="message" name="message" rows="5" required minlength="10" placeholder="Escribe tu mensaje..."></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary full-width">
+							<span data-lang-key="form-send-btn">Enviar Mensaje</span>
+							<span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+						</button>
+					</form>
+				</div>
+			</div>
+		</section>
 
-					<!-- Formulario de contacto -->
-					<form class="contact-form" id="contactForm"
-						action="https://formspree.io/f/mdkwgwpo"
-						method="POST" accept-charset="UTF-8">
-		<!-- Honeypot antispam -->
-		<input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
-		<div class="form-group">
-			<label for="name">Nombre</label>
-			<input type="text" id="name" name="name" required minlength="2" placeholder="Tu nombre">
-		</div>
-		<div class="form-group">
-			<label for="email">Email</label>
-			<input type="email" id="email" name="email" required placeholder="tu@email.com">
-		</div>
-		<div class="form-group">
-			<label for="subject">Asunto</label>
-			<input type="text" id="subject" name="subject" required minlength="3" placeholder="Asunto del mensaje">
-		</div>
-		<div class="form-group">
-			<label for="message">Mensaje</label>
-			<textarea id="message" name="message" rows="5" required minlength="10" placeholder="Escribe tu mensaje..."></textarea>
-		</div>
-		<button type="submit" class="btn btn-primary full-width" id="sendBtn">
-			<span>Enviar Mensaje</span>
-			<span class="btn-icon"><i class="fas fa-paper-plane" aria-hidden="true"></i></span>
-		</button>
-		<p id="formStatus" class="form-status" style="margin-top:.75rem;font-size:.9rem;"></p>
-	</form>
+		<section class="cv-section section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title" data-lang-key="cv-title">Currículum Vitae</h2>
+					<p class="section-subtitle" data-lang-key="cv-subtitle">Descarga mi CV en tu idioma preferido</p>
+				</div>
+				<div class="cv-download-container">
+					<a href="https://drive.google.com/uc?export=download&id=13RNF_mPwOtXsgmlcI3bu5rqiyc8cS_HG" class="btn cyberpunk-btn cv-btn" target="_blank" rel="noopener noreferrer">
+						<i class="fas fa-flag"></i>
+						<span data-lang-key="cv-download-es">Descargar CV (Español)</span>
+						<i class="fas fa-download"></i>
+					</a>
+					<a href="https://drive.google.com/uc?export=download&id=1xqUOCDaY0veQc_CuftwDHB8rjN0APFQD" class="btn cyberpunk-btn cv-btn" target="_blank" rel="noopener noreferrer">
+						<i class="fas fa-flag-usa"></i>
+						<span data-lang-key="cv-download-en">Download CV (English)</span>
+						<i class="fas fa-download"></i>
+					</a>
 				</div>
 			</div>
 		</section>
 	</main>
 
-	<!-- Footer -->
 	<footer class="footer">
 		<div class="container">
 			<div class="footer-content">
 				<div class="footer-text">
-					<p>&copy; 2024 David López. Diseñado y desarrollado por David López.</p>
+					<p data-lang-key="footer-text">&copy; 2024 David López. Diseñado y desarrollado por David López.</p>
 				</div>
 				<div class="footer-links">
-					<a href="#inicio">Inicio</a>
-					<a href="#sobre-mi">Sobre Mí</a>
-					<a href="#experiencia">Experiencia</a>
-					<a href="#habilidades">Habilidades</a>
-					<a href="#contacto">Contacto</a>
+					<a href="#inicio" data-lang-key="footer-home">Inicio</a>
+					<a href="#sobre-mi" data-lang-key="footer-about">Sobre Mí</a>
+					<a href="#experiencia" data-lang-key="footer-experience">Experiencia</a>
+					<a href="#habilidades" data-lang-key="footer-skills">Habilidades</a>
+					<a href="#contacto" data-lang-key="footer-contact">Contacto</a>
 				</div>
 			</div>
 		</div>
 	</footer>
 
-	<!-- Back to Top Button -->
 	<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-		<span class="arrow-up"><i class="fas fa-arrow-up" aria-hidden="true"></i></span>
+		<span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
 	</button>
 
-	<!-- Scripts -->
-	<script>
-window.initializeLoadingScreen = window.initializeLoadingScreen || function(){ /* stub */ };
-</script>
-<script src="./scripts/main.js"></script>
-
-<!-- GSAP CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-+vQwQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQwK8wQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- Animaciones hover GSAP -->
-<script>
-(function(){
-  // Hover scale para tarjetas y skills
-  const hoverSelectors = [
-    '.about-card',
-    '.skill-item',
-    '.soft-skill-card',
-    '.contact-card',
-    '.profile-card'
-  ];
-  hoverSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.style.transition = 'box-shadow .2s';
-      el.addEventListener('mouseenter', () => {
-        gsap.to(el, { scale: 1.06, boxShadow: '0 8px 32px 0 rgba(0,255,255,0.18)', duration: 0.25, ease: "power2.out" });
-      });
-      el.addEventListener('mouseleave', () => {
-        gsap.to(el, { scale: 1, boxShadow: '', duration: 0.25, ease: "power2.in" });
-      });
-    });
-  });
-
-  // Glow en hover para botones y badges
-  const glowSelectors = [
-    '.btn',
-    '.cyberpunk-btn',
-    '.tech-badge'
-  ];
-  glowSelectors.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        gsap.to(el, { boxShadow: '0 0 16px 4px #00ffe7, 0 0 32px 8px #00ffe7', duration: 0.25, ease: "power2.out" });
-      });
-      el.addEventListener('mouseleave', () => {
-        gsap.to(el, { boxShadow: '', duration: 0.25, ease: "power2.in" });
-      });
-    });
-  });
-
-  // Fade-up animación de entrada para elementos destacados
-  function animateOnLoad(selector, delayStep = 0.08) {
-    const els = document.querySelectorAll(selector);
-    els.forEach((el, i) => {
-      gsap.set(el, { opacity: 0, y: 32 });
-      gsap.to(el, { opacity: 1, y: 0, duration: 0.7, delay: 0.2 + i*delayStep, ease: "power3.out" });
-    });
-  }
-  window.addEventListener('DOMContentLoaded', () => {
-    animateOnLoad('.about-card');
-    animateOnLoad('.stat-card');
-    animateOnLoad('.skill-item', 0.05);
-    animateOnLoad('.soft-skill-card');
-    animateOnLoad('.contact-card');
-    animateOnLoad('.profile-card');
-  });
-
-  // --- SORPRENDENTE: Animaciones avanzadas GSAP ---
-
-  // 1. Rebote del botón "Volver arriba" al aparecer
-  window.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('backToTop');
-    if(btn) {
-      gsap.set(btn, { scale: 0, opacity: 0 });
-      setTimeout(() => {
-        gsap.to(btn, { scale: 1, opacity: 1, duration: 0.7, ease: "elastic.out(1, 0.5)" });
-      }, 1200);
-    }
-  });
-
-  // 2. Parpadeo neón en el nombre "David López"
-  window.addEventListener('DOMContentLoaded', () => {
-    const neon = document.querySelector('.hero-name.animated-gradient-text');
-    if(neon) {
-      function neonFlicker() {
-        gsap.to(neon, {
-          textShadow: "0 0 16px #00ffe7, 0 0 32px #00ffe7, 0 0 64px #00ffe7",
-          color: "#00ffe7",
-          duration: 0.08,
-          repeat: 1,
-          yoyo: true,
-          onComplete: () => {
-            setTimeout(neonFlicker, 1200 + Math.random()*800);
-          }
-        });
-      }
-      neonFlicker();
-    }
-  });
-
-  // 3. Burbujeo en iconos de tarjetas al hacer clic
-  function bubbleEffectOnClick(selector) {
-    document.querySelectorAll(selector).forEach(card => {
-      const icon = card.querySelector('.card-icon, .soft-skill-icon, .contact-icon, .profile-placeholder');
-      if(icon) {
-        icon.style.cursor = 'pointer';
-        icon.addEventListener('click', () => {
-          gsap.fromTo(icon, { scale: 1 }, { scale: 1.25, duration: 0.18, yoyo: true, repeat: 1, ease: "back.out(3)" });
-        });
-      }
-    });
-  }
-  window.addEventListener('DOMContentLoaded', () => {
-    bubbleEffectOnClick('.about-card');
-    bubbleEffectOnClick('.soft-skill-card');
-    bubbleEffectOnClick('.contact-card');
-    bubbleEffectOnClick('.profile-card');
-  });
-
-  // 4. Parallax suave en el fondo del hero al mover el mouse
-  window.addEventListener('DOMContentLoaded', () => {
-    const bg = document.querySelector('.hero-background');
-    if(bg) {
-      document.addEventListener('mousemove', e => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 30;
-        const y = (e.clientY / window.innerHeight - 0.5) * 30;
-        gsap.to(bg, { x: x, y: y, duration: 0.6, ease: "power3.out" });
-      });
-      document.addEventListener('mouseleave', () => {
-        gsap.to(bg, { x: 0, y: 0, duration: 0.8, ease: "power3.out" });
-      });
-    }
-  });
-
-  // --- EFECTOS SCROLL SORPRENDENTES ---
-
-  // Navbar shrink y translúcido al hacer scroll
-  window.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const sc = window.scrollY;
-      if (navbar) {
-        if (sc > 40) {
-          gsap.to(navbar, { height: "52px", background: "rgba(20,20,30,0.82)", boxShadow: "0 2px 16px 0 rgba(0,0,0,0.18)", duration: 0.35, ease: "power2.out" });
-        } else {
-          gsap.to(navbar, { height: "", background: "", boxShadow: "", duration: 0.35, ease: "power2.out" });
-        }
-      }
-      lastScroll = sc;
-    });
-  });
-
-  // Botón "Volver arriba" gira al aparecer with scroll
-  window.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('backToTop');
-    let shown = false;
-    window.addEventListener('scroll', () => {
-      if (!btn) return;
-      if (window.scrollY > 200 && !shown) {
-        shown = true;
-        gsap.to(btn, { scale: 1, opacity: 1, rotate: 360, duration: 0.7, ease: "elastic.out(1, 0.5)" });
-      } else if (window.scrollY <= 200 && shown) {
-        shown = false;
-        gsap.to(btn, { scale: 0, opacity: 0, rotate: 0, duration: 0.4, ease: "power2.in" });
-      }
-    });
-    // Inicialmente oculto
-    if(btn) gsap.set(btn, { scale: 0, opacity: 0, rotate: 0 });
-  });
-
-  // Hero background blur y oscurece al hacer scroll
-  window.addEventListener('DOMContentLoaded', () => {
-    const bg = document.querySelector('.hero-background');
-    window.addEventListener('scroll', () => {
-      if (!bg) return;
-      const max = 220;
-      const sc = Math.min(window.scrollY, max);
-      const blur = (sc / max) * 8;
-      const dark = (sc / max) * 0.35;
-      gsap.to(bg, { filter: `blur(${blur}px) brightness(${1-dark})`, duration: 0.3, overwrite: true });
-    });
-  });
-
-  // Slide-in lateral de secciones al entrar en viewport
-  window.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach((sec, i) => {
-      gsap.set(sec, { opacity: 0, x: i % 2 === 0 ? -80 : 80 });
-    });
-    function revealSections() {
-      sections.forEach((sec, i) => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120 && rect.bottom > 80 && sec.dataset.gsapShown !== "1") {
-          gsap.to(sec, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" });
-          sec.dataset.gsapShown = "1";
-        }
-      });
-    }
-    window.addEventListener('scroll', revealSections);
-    revealSections();
-  });
-
-})();
-</script>
-
-	<!-- Fallback loading ... -->
-	<script>
-	  (function () {
-		const hideLoading = () => {
-		  const scr = document.getElementById('loadingScreen');
-		  if (scr && !scr.classList.contains('is-hidden')) {
-			scr.classList.add('is-hidden');
-			scr.setAttribute('aria-hidden', 'true');
-		  }
-		  document.body.style.overflow = '';
-		};
-		document.addEventListener('DOMContentLoaded', () => {
-		  document.body.style.overflow = '';
-		  hideLoading();
-		  const sel = 'a.nav-link[href^="#"], .footer a[href^="#"]';
-		  document.querySelectorAll(sel).forEach(link => {
-			link.addEventListener('click', (e) => {
-			  const href = link.getAttribute('href');
-			  if (!href || href === '#') return;
-			  const id = href.slice(1);
-			  const target = document.getElementById(id);
-			  if (!target) return;
-			  e.preventDefault();
-			  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			  history.replaceState(null, '', href);
-			});
-		  });
-		});
-		window.addEventListener('load', hideLoading);
-		setTimeout(hideLoading, 4000);
-	  })();
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	<script src="./scripts/portfolio.js"></script>
 </body>
 </html>
