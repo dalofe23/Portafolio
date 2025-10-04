@@ -99,7 +99,7 @@
 		}
 	};
 
-	let currentLang = localStorage.getItem('language') || 'es';
+	let currentLang = localStorage.getItem('language') || 'en';
 	let typewriterInterval = null;
 
 	// ========== TYPEWRITER EFFECT ==========
@@ -443,6 +443,38 @@
 		}
 	}
 
+	// ========== SCROLL ANIMATIONS ==========
+	function initScrollAnimations() {
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('revealed');
+				}
+			});
+		}, observerOptions);
+
+		// Add scroll reveal classes to elements
+		document.querySelectorAll('.about-card, .stat-card, .skill-card-modern, .soft-skill-card, .contact-card').forEach(el => {
+			el.classList.add('scroll-reveal');
+			observer.observe(el);
+		});
+
+		document.querySelectorAll('.section-header').forEach(el => {
+			el.classList.add('scroll-reveal-left');
+			observer.observe(el);
+		});
+
+		document.querySelectorAll('.hero-visual, .contact-info').forEach(el => {
+			el.classList.add('scroll-reveal-right');
+			observer.observe(el);
+		});
+	}
+
 	// ========== INITIALIZATION ==========
 	document.addEventListener('DOMContentLoaded', () => {
 		hideLoading();
@@ -455,6 +487,7 @@
 		initAnimations();
 		initMatrixRain();
 		initParticles();
+		initScrollAnimations();
 
 		// Language toggle
 		const langToggle = document.getElementById('langToggle');

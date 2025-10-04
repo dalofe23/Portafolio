@@ -161,7 +161,7 @@ const translations = {
 	}
 };
 
-let currentLang = localStorage.getItem('language') || 'es';
+let currentLang = localStorage.getItem('language') || 'en';
 
 function setLanguage(lang) {
 	currentLang = lang;

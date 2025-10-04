@@ -17,7 +17,7 @@ const TYPEWRITER_SPEED = 100;
 const TYPEWRITER_DELAY = 2000;
 
 // DOM Elements
-let navbar, navLinks, mobileMenuToggle, navMenu, themeToggle, backToTop, loadingScreen;
+let navbar, navLinks, mobileMenuToggle, navMenu, themeToggle, backToTop;
 let sections, heroSection, contactForm, projectsGrid, filterButtons;
 
 // State
@@ -42,14 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeProjects();
     initializeContactForm();
-    initializeLoadingScreen();
     // Defer non-critical visual enhancements
     lazyLoadEnhancements();
-    
-    // Remove loading screen after everything is loaded
-    setTimeout(() => {
-        hideLoadingScreen();
-    }, 600); // reduce splash to ~0.6s for faster first paint
 });
 
 // ================================
@@ -65,7 +59,6 @@ function initializeElements() {
     // Theme and UI elements
     themeToggle = document.getElementById('themeToggle');
     backToTop = document.getElementById('backToTop');
-    loadingScreen = document.getElementById('loadingScreen');
     
     // Content sections
     sections = document.querySelectorAll('.section');
@@ -75,20 +68,6 @@ function initializeElements() {
     filterButtons = document.querySelectorAll('.filter-btn');
     
     console.log('✅ Elements initialized');
-}
-
-// ================================
-// LOADING SCREEN
-// ================================
-function hideLoadingScreen() {
-    if (loadingScreen) {
-        loadingScreen.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-        
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
-    }
 }
 
 // ================================
