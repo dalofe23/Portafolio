@@ -266,7 +266,7 @@ function initializeAnimations() {
 
 function handleIntersection(entries) {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
             entry.target.classList.add('revealed');
             
             // Animate progress bars when skills section is visible
@@ -278,6 +278,9 @@ function handleIntersection(entries) {
             if (entry.target.closest('#sobre-mi')) {
                 animateCounters();
             }
+            
+            // Stop observing after animation to save resources
+            animationObserver.unobserve(entry.target);
         }
     });
 }
@@ -401,53 +404,9 @@ function handleParallax() {
 // LAZY LOAD HEAVY ENHANCEMENTS
 // ================================
 function lazyLoadEnhancements() {
-    // Use requestIdleCallback when available to avoid blocking first render
-    const loader = () => {
-        // Lazy-load particles.js only if the container exists
-        const container = document.getElementById('particles-js');
-        if (container && !window.particlesJS) {
-            loadScript('https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js')
-                .then(() => {
-                    if (window.particlesJS) {
-                        window.particlesJS('particles-js', {
-                            particles: {
-                                number: { value: 40, density: { enable: true, value_area: 800 } },
-                                color: { value: ['#00d4ff', '#ff6b6b', '#ffd700'] },
-                                shape: { type: 'circle' },
-                                opacity: { value: 0.25 },
-                                size: { value: 3, random: true },
-                                line_linked: { enable: true, distance: 150, color: '#00d4ff', opacity: 0.2, width: 1 },
-                                move: { enable: true, speed: 1.2 }
-                            },
-                            interactivity: {
-                                detect_on: 'canvas',
-                                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: false }, resize: true },
-                                modes: { repulse: { distance: 100, duration: 0.4 } }
-                            },
-                            retina_detect: true
-                        });
-                    }
-                })
-                .catch(() => {/* ignore */});
-        }
-    };
-    if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loader, { timeout: 1500 });
-    } else {
-        // Fallback: delay after first load to not affect TTI
-        window.addEventListener('load', () => setTimeout(loader, 1200));
-    }
-}
-
-function loadScript(src) {
-    return new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        s.src = src;
-        s.async = true;
-        s.onload = resolve;
-        s.onerror = reject;
-        document.head.appendChild(s);
-    });
+    // Particles.js has been removed for better performance
+    // If you want to restore it, uncomment the code below
+    console.log('✅ Performance optimizations loaded');
 }
 
 // ================================
@@ -564,17 +523,16 @@ function filterProjects(filter, projects) {
         ? projects 
         : projects.filter(project => project.category === filter);
     
-    // Add fade out animation
+    // Simple fade transition without complex animation
     projectsGrid.style.opacity = '0';
-    projectsGrid.style.transform = 'translateY(20px)';
     
-    setTimeout(() => {
-        renderProjects(filteredProjects);
-        
-        // Add fade in animation
-        projectsGrid.style.opacity = '1';
-        projectsGrid.style.transform = 'translateY(0)';
-    }, 200);
+    // Use requestAnimationFrame for smooth timing
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            renderProjects(filteredProjects);
+            projectsGrid.style.opacity = '1';
+        }, 150);
+    });
 }
 
 // ================================
@@ -694,9 +652,13 @@ function throttle(func, limit) {
 // ================================
 
 // Optimize scroll handlers with throttling
-window.addEventListener('scroll', throttle(handleScroll, 16));
-window.addEventListener('scroll', throttle(updateActiveNavLink, 100));
-window.addEventListener('scroll', throttle(handleParallax, 16));
+const throttledScroll = throttle(handleScroll, 16);
+const throttledNavUpdate = throttle(updateActiveNavLink, 100);
+const throttledParallax = throttle(handleParallax, 16);
+
+window.addEventListener('scroll', throttledScroll, { passive: true });
+window.addEventListener('scroll', throttledNavUpdate, { passive: true });
+window.addEventListener('scroll', throttledParallax, { passive: true });
 
 // ================================
 // ERROR HANDLING

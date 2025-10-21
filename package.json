@@ -1,0 +1,32 @@
+{
+  "name": "david-lopez-portfolio",
+  "version": "2.0.0",
+  "description": "David López - Web Developer Portfolio (Optimized)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build.js",
+    "test": "echo \"Run visual tests in browser\""
+  },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "javascript",
+    "html5",
+    "css3",
+    "responsive"
+  ],
+  "author": "David López",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dalofe23/Portafolio"
+  },
+  "devDependencies": {
+    "description": "No external dependencies required"
+  }
+}
