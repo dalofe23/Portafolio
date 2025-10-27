@@ -4,17 +4,72 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google" content="notranslate">
-	<title>David López - Web Developer</title>
+	<meta name="theme-color" content="#0a0a0a">
+	
+	<!-- SEO Meta Tags -->
+	<title>David López - Web Developer | Portfolio</title>
 	<meta name="description" content="David López's portfolio, a web developer specialized in modern applications and innovative solutions.">
 	<meta name="keywords" content="David López, web developer, JavaScript, HTML, CSS, PHP, programming, portfolio">
-	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+	<meta name="author" content="David López">
+	<meta name="robots" content="index, follow">
+	
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="David López - Web Developer">
+	<meta property="og:description" content="Web developer specialized in modern applications and innovative solutions.">
+	<meta property="og:url" content="https://dalofe23.github.io/Portafolio/">
+	<meta property="og:site_name" content="David López Portfolio">
+	<meta property="og:locale" content="en_US">
+	
+	<!-- Twitter Card Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="David López - Web Developer">
+	<meta name="twitter:description" content="Web developer specialized in modern applications and innovative solutions.">
+	
+	<!-- Security Headers -->
+	<meta http-equiv="X-Content-Type-Options" content="nosniff">
+	<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+	<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+	
+	<!-- Preconnect for performance -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="https://formspree.io">
+	
+	<!-- Prefetch para recursos probables -->
+	<link rel="prefetch" href="./scripts/portfolio.js">
+	<link rel="prefetch" href="./scripts/language.js">
+	
+	<!-- Critical CSS Inline for instant render -->
+	<style>
+		*{margin:0;padding:0;box-sizing:border-box}
+		html{font-size:16px;scroll-behavior:smooth}
+		body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}
+		.navbar{position:fixed;top:0;left:0;right:0;background:rgba(10,10,10,.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid #333;z-index:100;transition:all .3s}
+		.section{padding:4rem 0;content-visibility:auto}
+		.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+		.hidden{display:none!important}
+		img{content-visibility:auto;will-change:auto}
+	</style>
+	
+	<!-- Preload critical resources -->
+	<link rel="preload" href="./styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<link rel="preload" href="./styles/effects.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="stylesheet" href="./styles/effects.css">
+	</noscript>
+	
+	<!-- Optimized font loading with font-display -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+	
+	<!-- Defer Font Awesome loading -->
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-	<link rel="stylesheet" href="./styles/main.css">
-	<link rel="stylesheet" href="./styles/effects.css">
+	
+	<!-- PWA Manifest -->
+	<link rel="manifest" href="./manifest.json">
 </head>
 <body class="notranslate">
 	<nav class="navbar" id="navbar">
@@ -72,6 +127,18 @@
 							<a href="#contacto" class="btn cyberpunk-btn">
 								<i class="fas fa-paper-plane"></i>
 								<span data-lang-key="hero-contact-btn" class="notranslate">Contact</span>
+							</a>
+						</div>
+						<div class="hero-cv-buttons">
+							<a href="https://drive.google.com/uc?export=download&id=13RNF_mPwOtXsgmlcI3bu5rqiyc8cS_HG" class="btn-cv" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-flag"></i>
+								<span data-lang-key="cv-download-es" class="notranslate">CV Spanish</span>
+								<i class="fas fa-download"></i>
+							</a>
+							<a href="https://drive.google.com/uc?export=download&id=1xqUOCDaY0veQc_CuftwDHB8rjN0APFQD" class="btn-cv" target="_blank" rel="noopener noreferrer">
+								<i class="fas fa-flag-usa"></i>
+								<span data-lang-key="cv-download-en" class="notranslate">CV English</span>
+								<i class="fas fa-download"></i>
 							</a>
 						</div>
 					</div>
@@ -135,7 +202,7 @@
 							<div class="stat-number" data-count="100">0</div>
 							<div class="stat-label notranslate" data-lang-key="stat-label2">% Satisfacción Cliente</div>
 						</div>
-						<div class="about-card" style="margin-top:1.5rem;">
+						<div class="about-card languages-card">
 							<div class="card-icon"><i class="fas fa-language"></i></div>
 							<h3 data-lang-key="languages-title" class="notranslate">Languages</h3>
 							<div class="languages notranslate">
@@ -160,17 +227,38 @@
 					<h2 class="section-title notranslate" data-lang-key="exp-title">Experience</h2>
 					<p class="section-subtitle notranslate" data-lang-key="exp-subtitle">Professional summary</p>
 				</div>
-				<div class="about-content">
-					<div class="about-text">
-						<div class="about-card">
-							<div class="card-icon"><i class="fas fa-briefcase"></i></div>
-							<h3 data-lang-key="exp-job-title" class="notranslate">Erasmus Internship — Casemedia (Finland)</h3>
-							<ul class="strengths-list notranslate">
-								<li data-lang-key="exp-role" class="notranslate">Role: Web/Mobile Developer (2025)</li>
-								<li data-lang-key="exp-duration" class="notranslate">1-month full-time stay (8 h/day) within the Erasmus program.</li>
-								<li data-lang-key="exp-description" class="notranslate">Mobile application development with Flutter, participating in the entire life cycle.</li>
-							</ul>
+				<div class="experience-layout">
+					<div class="experience-main-card">
+						<div class="card-icon"><i class="fas fa-briefcase"></i></div>
+						<h3 data-lang-key="exp-job-title" class="notranslate">Erasmus Internship — Casemedia (Finland)</h3>
+						
+						<p class="experience-description notranslate" data-lang-key="exp-detailed-description">
+							Conseguí la oportunidad de trabajar durante un mes en una empresa en Finlandia, donde me exigían rendir como un trabajador más. Me saqué de mi zona de confort y demostré que puedo resolver problemas bajo presión. Aprendí cómo funciona una empresa de verdad, qué se necesita para trabajar en equipo a nivel profesional, y me llevé un montón de experiencias que me han ayudado a crecer tanto profesional como personalmente.
+						</p>
+						
+						<ul class="strengths-list notranslate">
+							<li data-lang-key="exp-role" class="notranslate"><span class="strength-label">Rol:</span> Desarrollador Web/Móvil (2025)</li>
+							<li data-lang-key="exp-duration" class="notranslate"><span class="strength-label">Duración:</span> 1 mes a jornada completa (8 h/día) en programa Erasmus+</li>
+							<li data-lang-key="exp-description" class="notranslate"><span class="strength-label">Responsabilidades:</span> Desarrollo de aplicaciones móviles con Flutter</li>
+						</ul>
+					</div>
+					
+					<!-- Carta de Recomendación -->
+					<div class="recommendation-card-vertical">
+						<div class="recommendation-header">
+							<i class="fas fa-award"></i>
+							<h4 data-lang-key="exp-recommendation-title" class="notranslate">Carta de Recomendación</h4>
 						</div>
+						<p class="recommendation-text notranslate" data-lang-key="exp-recommendation-description">
+							Recomendación oficial de Casemedia certificando mi desempeño y contribuciones durante las prácticas.
+						</p>
+						<a href="https://drive.google.com/file/d/1IFGBEqRIfu9CUdwrIbPkiBCh-e6X9_DM/view?usp=sharing" 
+						   target="_blank" 
+						   rel="noopener noreferrer" 
+						   class="btn recommendation-btn">
+							<i class="fas fa-file-pdf"></i>
+							<span data-lang-key="exp-view-recommendation" class="notranslate">Ver Carta de Recomendación</span>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -217,7 +305,6 @@
 						<div class="skill-list-modern">
 							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> MySQL</div>
 							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> MongoDB</div>
-							<div class="skill-item-modern"><i class="fas fa-angle-right"></i> FileMaker</div>
 						</div>
 					</div>
 					<div class="skill-card-modern">
@@ -295,7 +382,7 @@
 						</div>
 					</div>
 					<form class="contact-form" id="contactForm" action="https://formspree.io/f/mdkwgwpo" method="POST">
-						<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+						<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden-field" aria-hidden="true">
 						<div class="form-group">
 							<label for="name" data-lang-key="form-name" class="notranslate">Name</label>
 							<input type="text" id="name" name="name" required minlength="2" placeholder="Your name" class="notranslate">
@@ -317,27 +404,6 @@
 							<span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
 						</button>
 					</form>
-				</div>
-			</div>
-		</section>
-
-		<section class="cv-section section">
-			<div class="container">
-				<div class="section-header">
-					<h2 class="section-title notranslate" data-lang-key="cv-title">Curriculum Vitae</h2>
-					<p class="section-subtitle notranslate" data-lang-key="cv-subtitle">Download my CV in your preferred language</p>
-				</div>
-				<div class="cv-download-container">
-					<a href="https://drive.google.com/uc?export=download&id=13RNF_mPwOtXsgmlcI3bu5rqiyc8cS_HG" class="btn cyberpunk-btn cv-btn" target="_blank" rel="noopener noreferrer">
-						<i class="fas fa-flag"></i>
-						<span data-lang-key="cv-download-es" class="notranslate">Download CV (Spanish)</span>
-						<i class="fas fa-download"></i>
-					</a>
-					<a href="https://drive.google.com/uc?export=download&id=1xqUOCDaY0veQc_CuftwDHB8rjN0APFQD" class="btn cyberpunk-btn cv-btn" target="_blank" rel="noopener noreferrer">
-						<i class="fas fa-flag-usa"></i>
-						<span data-lang-key="cv-download-en" class="notranslate">Download CV (English)</span>
-						<i class="fas fa-download"></i>
-					</a>
 				</div>
 			</div>
 		</section>
@@ -364,8 +430,17 @@
 		<span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
 	</button>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-	<script src="./scripts/portfolio.js"></script>
-	<script src="./scripts/language.js"></script>
+	<!-- Critical inline JavaScript for instant interactivity -->
+	<script>
+		(function(){const t=document.getElementById('themeToggle'),e=document.documentElement,a=localStorage.getItem('theme')||'dark';e.setAttribute('data-theme',a);t&&t.addEventListener('click',function(){const t=e.getAttribute('data-theme'),a='dark'===t?'light':'dark';e.setAttribute('data-theme',a),localStorage.setItem('theme',a)},{passive:!0});const n=document.getElementById('mobileMenuToggle'),i=document.getElementById('navMenu');n&&i&&n.addEventListener('click',function(){i.classList.toggle('active'),this.classList.toggle('active')},{passive:!0});let o=!1;window.addEventListener('scroll',function(){o||(window.requestAnimationFrame(function(){const t=document.getElementById('navbar');t&&(t.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,0.1)':'none'),o=!1}),o=!0)},{passive:!0})})();
+		
+		// Register Service Worker
+		if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').then(function(r){console.log('SW registered')},function(e){console.log('SW failed')})})}
+	</script>
+
+	<!-- Deferred non-critical scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+	<script src="./scripts/portfolio.js" defer></script>
+	<script src="./scripts/language.js" defer></script>
 </body>
 </html>

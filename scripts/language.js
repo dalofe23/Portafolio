@@ -30,9 +30,13 @@ const translations = {
 		'exp-title': 'Experiencia',
 		'exp-subtitle': 'Resumen profesional',
 		'exp-job-title': 'Prácticas Erasmus — Casemedia (Finlandia)',
-		'exp-role': 'Rol: Desarrollador Web/Móvil (2025)',
-		'exp-duration': 'Estancia de 1 mes a jornada completa (8 h/día) dentro del programa Erasmus.',
-		'exp-description': 'Desarrollo de aplicaciones móviles con Flutter, participando en todo el ciclo de vida.',
+		'exp-detailed-description': 'Conseguí la oportunidad de trabajar durante un mes en una empresa en Finlandia, donde me exigían rendir como un trabajador más. Me saqué de mi zona de confort y demostré que puedo resolver problemas bajo presión. Aprendí cómo funciona una empresa de verdad, qué se necesita para trabajar en equipo a nivel profesional, y me llevé un montón de experiencias que me han ayudado a crecer tanto profesional como personalmente.',
+		'exp-role': '<span class="strength-label">Rol:</span> Desarrollador Web/Móvil (2025)',
+		'exp-duration': '<span class="strength-label">Duración:</span> 1 mes a jornada completa (8 h/día) en programa Erasmus+',
+		'exp-description': '<span class="strength-label">Responsabilidades:</span> Desarrollo de aplicaciones móviles con Flutter',
+		'exp-recommendation-title': 'Carta de Recomendación',
+		'exp-recommendation-description': 'Recomendación oficial de Casemedia certificando mi desempeño y contribuciones durante las prácticas.',
+		'exp-view-recommendation': 'Ver Carta de Recomendación',
 		'skills-title': 'Habilidades',
 		'skills-subtitle': 'Tecnologías que domino',
 		'skills-frontend-title': 'Front-End & Markup Languages',
@@ -110,9 +114,13 @@ const translations = {
 		'exp-title': 'Experience',
 		'exp-subtitle': 'Professional summary',
 		'exp-job-title': 'Erasmus Internship — Casemedia (Finland)',
-		'exp-role': 'Role: Web/Mobile Developer (2025)',
-		'exp-duration': '1-month full-time stay (8 h/day) within the Erasmus program.',
-		'exp-description': 'Mobile application development with Flutter, participating in the entire life cycle.',
+		'exp-detailed-description': 'I got the opportunity to work for a month at a company in Finland, where they expected me to perform like a regular employee. I stepped out of my comfort zone and proved I can solve problems under pressure. I learned how a real company works, what it takes to work professionally in a team, and gained tons of experiences that helped me grow both professionally and personally.',
+		'exp-role': '<span class="strength-label">Role:</span> Web/Mobile Developer (2025)',
+		'exp-duration': '<span class="strength-label">Duration:</span> 1-month full-time (8 h/day) in Erasmus+ program',
+		'exp-description': '<span class="strength-label">Responsibilities:</span> Mobile app development with Flutter',
+		'exp-recommendation-title': 'Letter of Recommendation',
+		'exp-recommendation-description': 'Official recommendation from Casemedia certifying my performance and contributions during the internship.',
+		'exp-view-recommendation': 'View Recommendation Letter',
 		'skills-title': 'Skills',
 		'skills-subtitle': 'Technologies I master',
 		'skills-frontend-title': 'Front-End & Markup Languages',
@@ -172,7 +180,8 @@ function setLanguage(lang) {
 	document.querySelectorAll('[data-lang-key]').forEach(el => {
 		const key = el.getAttribute('data-lang-key');
 		if (translations[lang][key]) {
-			if (el.innerHTML.includes('<strong>')) {
+			// Check if translation contains HTML tags
+			if (translations[lang][key].includes('<')) {
 				el.innerHTML = translations[lang][key];
 			} else {
 				el.textContent = translations[lang][key];
