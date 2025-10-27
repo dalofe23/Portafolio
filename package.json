@@ -4,9 +4,11 @@
   "description": "David López - Web Developer Portfolio (Optimized)",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "build": "node build.js",
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "build:analyze": "webpack --mode production --analyze",
+    "serve": "npm run build && http-server dist -p 8080 -o",
+    "server": "node server.js",
     "test": "echo \"Run visual tests in browser\""
   },
   "keywords": [
@@ -27,6 +29,24 @@
     "url": "https://github.com/dalofe23/Portafolio"
   },
   "devDependencies": {
-    "description": "No external dependencies required"
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "babel-loader": "^10.0.0",
+    "copy-webpack-plugin": "^13.0.1",
+    "core-js": "^3.46.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.2",
+    "html-webpack-plugin": "^5.6.4",
+    "http-server": "^14.1.1",
+    "mini-css-extract-plugin": "^2.9.4",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.14",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "gsap": "^3.13.0"
   }
 }
