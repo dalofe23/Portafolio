@@ -1,65 +1,42 @@
-// Service Worker para caché offline y mejor rendimiento
-const CACHE_NAME = 'portfolio-v1';
-const urlsToCache = [
+// Service Worker v4 - Performance optimized
+const CACHE = 'portfolio-v4';
+const RUNTIME = 'runtime-v4';
+
+const FILES = [
   '/',
   '/index.html',
-  '/styles/main.css',
-  '/styles/effects.css',
-  '/scripts/portfolio.js',
-  '/scripts/language.js',
-  '/manifest.json'
+  '/styles/main.min.css',
+  '/styles/effects.min.css',
+  '/assets/fontawesome/all.min.css'
 ];
 
-// Instalación del service worker
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-      .then(() => self.skipWaiting())
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())
   );
 });
 
-// Activación y limpieza de cachés antiguos
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(keys => 
+      Promise.all(keys.map(k => k !== CACHE && k !== RUNTIME ? caches.delete(k) : null))
+    ).then(() => self.clients.claim())
   );
 });
 
-// Estrategia: Cache First, luego Network
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
+self.addEventListener('fetch', e => {
+  const url = new URL(e.request.url);
+  if (url.origin !== location.origin) return;
+  
+  e.respondWith(
+    caches.match(e.request).then(r => 
+      r || fetch(e.request).then(res => {
+        if (res.status === 200) {
+          const clone = res.clone();
+          caches.open(RUNTIME).then(c => c.put(e.request, clone));
         }
-        
-        return fetch(event.request).then(response => {
-          // Check if we received a valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-          
-          // Clone the response
-          const responseToCache = response.clone();
-          
-          caches.open(CACHE_NAME)
-            .then(cache => {
-              cache.put(event.request, responseToCache);
-            });
-          
-          return response;
-        });
+        return res;
       })
+    )
   );
 });

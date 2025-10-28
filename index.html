@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google" content="notranslate">
-	<meta name="theme-color" content="#0a0a0a">
+	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 	
 	<!-- SEO Meta Tags -->
 	<title>David López - Web Developer | Portfolio</title>
@@ -12,6 +13,7 @@
 	<meta name="keywords" content="David López, web developer, JavaScript, HTML, CSS, PHP, programming, portfolio">
 	<meta name="author" content="David López">
 	<meta name="robots" content="index, follow">
+	<link rel="canonical" href="https://dalofe23.github.io/Portafolio/">
 	
 	<!-- Open Graph Meta Tags -->
 	<meta property="og:type" content="website">
@@ -20,52 +22,46 @@
 	<meta property="og:url" content="https://dalofe23.github.io/Portafolio/">
 	<meta property="og:site_name" content="David López Portfolio">
 	<meta property="og:locale" content="en_US">
+	<meta property="og:image" content="https://raw.githubusercontent.com/dalofe23/Portafolio/main/favicon.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 	
 	<!-- Twitter Card Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="David López - Web Developer">
 	<meta name="twitter:description" content="Web developer specialized in modern applications and innovative solutions.">
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/dalofe23/Portafolio/main/favicon.png">
 	
 	<!-- Security Headers -->
 	<meta http-equiv="X-Content-Type-Options" content="nosniff">
-	<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 	<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+	<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 	
 	<!-- Preconnect for performance -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="https://formspree.io">
+	<link rel="dns-prefetch" href="https://formspre.io">
 	
-	<!-- Critical CSS Inline for instant render -->
+	<!-- Preload ONLY critical CSS -->
+	<link rel="preload" href="./styles/main.min.css" as="style">
+	
+	<!-- Critical CSS Inline for instant render (minimal) -->
 	<style>
-		*{margin:0;padding:0;box-sizing:border-box}
-		html{font-size:16px;scroll-behavior:smooth}
-		body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}
-		.navbar{position:fixed;top:0;left:0;right:0;background:rgba(10,10,10,.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid #333;z-index:100;transition:all .3s}
-		.section{padding:4rem 0;content-visibility:auto}
-		.container{max-width:1200px;margin:0 auto;padding:0 1rem}
-		.hidden{display:none!important}
-		img{content-visibility:auto;will-change:auto}
+		*{margin:0;padding:0;box-sizing:border-box}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;overflow-x:hidden}.navbar{position:fixed;top:0;width:100%;background:rgba(10,10,10,.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid#333;z-index:100;height:70px}.nav-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;height:100%}.nav-menu{display:flex;list-style:none;gap:2rem}.nav-link{color:#b3b3b3;text-decoration:none;font-weight:500;transition:color.15s}.nav-link:hover,.nav-link.active{color:#00d4ff}.section{padding:4rem 0}.container{max-width:1200px;margin:0 auto;padding:0 1rem}.hero-section{min-height:100vh;display:flex;align-items:center;position:relative}.hidden{display:none!important}
 	</style>
 	
-	<!-- Optimized font loading with font-display -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 	
-	<!-- Font Awesome local (sin cookies de terceros) -->
-	<link rel="stylesheet" href="./assets/fontawesome/all.min.css">
+	<!-- Font Awesome local (sin cookies de terceros) - Carga diferida -->
+	<link rel="preload" href="./assets/fontawesome/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="./assets/fontawesome/all.min.css"></noscript>
 	
 	<!-- PWA Manifest & Icons -->
-	<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/dalofe23/Portafolio/main/favicon.png">
-	<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/dalofe23/Portafolio/main/favicon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/dalofe23/Portafolio/main/favicon.png">
+	<link rel="apple-touch-icon" sizes="192x192" href="https://raw.githubusercontent.com/dalofe23/Portafolio/main/favicon.png">
 	<link rel="manifest" href="./manifest.json">
 	
-	<!-- Preload critical resources -->
-	<link rel="preload" href="./styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<link rel="preload" href="./styles/effects.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript>
-		<link rel="stylesheet" href="./styles/main.css">
-		<link rel="stylesheet" href="./styles/effects.css">
-	</noscript>
+	<!-- Load critical CSS (minified for performance) -->
+	<link rel="stylesheet" href="./styles/main.min.css">
+	<link rel="stylesheet" href="./styles/effects.min.css" media="print" onload="this.media='all'">
+	<noscript><link rel="stylesheet" href="./styles/effects.min.css"></noscript>
 </head>
 <body class="notranslate">
 	<nav class="navbar" id="navbar">
@@ -426,17 +422,13 @@
 		<span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
 	</button>
 
-	<!-- Critical inline JavaScript for instant interactivity -->
-	<script>
-		(function(){const t=document.getElementById('themeToggle'),e=document.documentElement,a=localStorage.getItem('theme')||'dark';e.setAttribute('data-theme',a);t&&t.addEventListener('click',function(){const t=e.getAttribute('data-theme'),a='dark'===t?'light':'dark';e.setAttribute('data-theme',a),localStorage.setItem('theme',a)},{passive:!0});const n=document.getElementById('mobileMenuToggle'),i=document.getElementById('navMenu');n&&i&&n.addEventListener('click',function(){i.classList.toggle('active'),this.classList.toggle('active')},{passive:!0});let o=!1;window.addEventListener('scroll',function(){o||(window.requestAnimationFrame(function(){const t=document.getElementById('navbar');t&&(t.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,0.1)':'none'),o=!1}),o=!0)},{passive:!0})})();
-		
-		// Register Service Worker
-		if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').then(function(r){console.log('SW registered')},function(e){console.log('SW failed')})})}
-	</script>
 
-	<!-- Deferred non-critical scripts -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-	<script src="./scripts/portfolio.js" defer></script>
-	<script src="./scripts/language.js" defer></script>
+	<!-- Critical inline JavaScript for instant interactivity (minified) -->
+	<script>!function(){'use strict';const e=document.getElementById('themeToggle'),t=document.documentElement,n=localStorage.getItem('theme')||'dark';t.setAttribute('data-theme',n),e&&e.addEventListener('click',function(){const e=t.getAttribute('data-theme'),n='dark'===e?'light':'dark';t.setAttribute('data-theme',n),localStorage.setItem('theme',n);const a=document.querySelector('meta[name="theme-color"]');a&&a.setAttribute('content','dark'===n?'#0a0a0a':'#ffffff')},{passive:!0});const a=document.getElementById('mobileMenuToggle'),l=document.getElementById('navMenu');a&&l&&a.addEventListener('click',function(){l.classList.toggle('active'),this.classList.toggle('active'),this.setAttribute('aria-expanded',l.classList.contains('active'))},{passive:!0});let c=!1;const o=document.getElementById('navbar');window.addEventListener('scroll',function(){c||(window.requestAnimationFrame(function(){o&&(o.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,0.1)':'none'),c=!1}),c=!0)},{passive:!0}),'serviceWorker'in navigator&&window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').then(function(e){console.log('SW:',e.scope)}).catch(function(e){console.error('SW fail:',e)})})}();</script>
+
+	<!-- Deferred non-critical scripts (minified) - Load after page render -->
+	<script src="./scripts/portfolio.min.js" defer></script>
+	<script src="./scripts/language.min.js" defer></script>
+	<script src="./assets/gsap/gsap.min.js" defer></script>
 </body>
 </html>
